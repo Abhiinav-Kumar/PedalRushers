@@ -61,6 +61,7 @@
         <div class="loader">Loading...</div>
       </div>
 
+<!--      navbar starting-->
       <nav class="navbar navbar-custom navbar-fixed-top " role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -73,7 +74,7 @@
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Category</a>
                 <ul class="dropdown-menu">
                   {% for x in cat %}
-                  <li class="dropdown"><a class="dropdown-toggle" href="{% url 'Sub_Filtered_product' sub_name=x.Category_PD %}" >{{x.Category_PD}}</a>
+                  <li class="dropdown"><a class="dropdown-toggle"  href="{% url 'Sub_Filtered_product' sub_name=x.Category_PD %}" >{{x.Category_PD}}</a>
                   </li>
                   {% endfor %}
                 </ul>
@@ -81,27 +82,17 @@
               <li class="dropdown"><a href="{% url 'Products_Web' %}" >Products</a></li>
               <li class="dropdown"><a  href="{% url 'Contact_page' %}" >Contact</a></li>
               <li class="dropdown"><a href="{% url 'About_page' %}">About</a></li>
-
-               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Shop</a>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Shop</a>
                 <ul class="dropdown-menu" role="menu">
                   <li ><a class="dropdown-toggle" href="{% url 'Cart_page' %}" data-toggle="dropdown">Cart</a></li>
-                </ul>
-              </li>
-
-              <li class="dropdown"><a class="dropdown-toggle" href="documentation.html" data-toggle="dropdown">Documentation</a>
-                <ul class="dropdown-menu">
-                  <li><a href="documentation.html#contact">Contact Form</a></li>
-                  <li><a href="documentation.html#reservation">Reservation Form</a></li>
-                  <li><a href="documentation.html#mailchimp">Mailchimp</a></li>
-                  <li><a href="documentation.html#gmap">Google Map</a></li>
-                  <li><a href="documentation.html#plugin">Plugins</a></li>
-                  <li><a href="documentation.html#changelog">Changelog</a></li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+<!--      navbar ending-->
+
       <div class="main">
         <section class="module bg-dark-60 shop-page-header" data-background="{% static 'webstyle/gallery/WhatsApp Image 2024-05-15 at 11.25.32_ef2c9d0f.jpg' %}" style="height:550px;">
           <div class="container">
