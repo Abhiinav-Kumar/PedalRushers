@@ -115,15 +115,15 @@
                   <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <input class="form-control input-lg" type="text" placeholder="Name" value="{{request.session.Username}}" name="username">
+                                <input class="form-control input-lg" type="text" placeholder="Name" value="{{request.session.Username}}" name="username" required readonly>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" type="email" placeholder="Email" name="email">
+                                <input class="form-control input-lg" type="email" placeholder="Email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" type="text" placeholder="Phone Number" name="phonenumber">
+                                <input class="form-control input-lg" type="text" placeholder="Phone Number" name="phonenumber" required>
                             </div>
-                                <textarea class="form-control" rows="7" placeholder="Address" name="address"></textarea> <br>
+                                <textarea class="form-control" rows="7" placeholder="Address" name="address" required></textarea> <br>
                             <div class="form-group">
                                 <select class="form-control input-lg" name="state" required>
                                   <option>Select State</option>
@@ -159,10 +159,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" type="text" placeholder="City" name="city">
+                                <input class="form-control input-lg" type="text" placeholder="City" name="city" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control input-lg" type="text" placeholder="Postal Code" name="postal">
+                                <input class="form-control input-lg" type="text" placeholder="Postal Code" name="postal" required>
                             </div>
                                 <textarea class="form-control" rows="7" placeholder="Say Something" name="message"></textarea> <br>
                             </div>

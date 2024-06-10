@@ -160,6 +160,8 @@ def Save_Billing(req):
         
         obj = UserBillingDB(Username=un,Email=em,Phone=ph,Address=add,State=state,City=city,Postalcode=postal,Messages=mes)
         obj.save()
+        x = CartDB.objects.filter(Username=req.session['Username'])
+        x.delete()
         return redirect(Payment_page)
 
 
