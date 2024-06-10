@@ -160,9 +160,9 @@ def Save_Billing(req):
         
         obj = UserBillingDB(Username=un,Email=em,Phone=ph,Address=add,State=state,City=city,Postalcode=postal,Messages=mes)
         obj.save()
-        return redirect(Payement_page)
+        return redirect(Payment_page)
 
 
-def Payement_page(req):
+def Payment_page(req):
     return render(req,"Payment.html")      
     

@@ -24,7 +24,7 @@ urlpatterns = [
     path('Checkout_page/',views.Checkout_page,name="Checkout_page"),
     path('Save_Billing/',views.Save_Billing,name="Save_Billing"),
 
-     path('Payement_page/',views.Payement_page,name="Payement_page"),
+     path('Payment_page/',views.Payment_page,name="Payment_page"),
 
 
 ]
