@@ -27,5 +27,6 @@ class UserBillingDB(models.Model):
     City = models.CharField(max_length=100,null=True,blank=True)
     Postalcode = models.IntegerField(null=True,blank=True)
     Messages = models.CharField(max_length=100,null=True,blank=True)
+    Totalprice = models.IntegerField(null=True,blank=True)
 
 

@@ -145,7 +145,23 @@ def Delete_cart_item(req,cartid):
 
 def Checkout_page(req):
     cat = PedalRushersDB.objects.all()
-    return render(req,'Checkout.html',{'cat':cat})
+    data = CartDB.objects.filter(Username=req.session['Username'])
+    sub_total = 0
+    shipping_charge = 0
+    total = 0
+    for x in data:
+        sub_total += x.Total_Price
+    if sub_total >= 10000:
+        shipping_charge = 50
+    elif sub_total>= 5000:
+        shipping_charge = 100
+    elif sub_total >= 1000:
+        shipping_charge = 130
+    else:
+        shipping_charge = 150
+
+    total =sub_total+shipping_charge
+    return render(req,'Checkout.html',{'cat':cat,'total':total})
 
 def Save_Billing(req):
     if req.method=="POST":
@@ -157,8 +173,9 @@ def Save_Billing(req):
         city = req.POST.get('city')
         postal = req.POST.get('postal')
         mes = req.POST.get('message')
-        
-        obj = UserBillingDB(Username=un,Email=em,Phone=ph,Address=add,State=state,City=city,Postalcode=postal,Messages=mes)
+        tp = req.POST.get('totalprice')
+
+        obj = UserBillingDB(Username=un,Email=em,Phone=ph,Address=add,State=state,City=city,Postalcode=postal,Messages=mes,Totalprice=tp)
         obj.save()
         x = CartDB.objects.filter(Username=req.session['Username'])
         x.delete()
