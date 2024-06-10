@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedal Rushers | Add Technical Details</title>
+  {% extends 'Index.html' %}
+{% block content %}
+</head>
+<body>
+
+<form method="post" action="{% url 'Save_Technical_data' %}" >
+  {% csrf_token %}
+
+  <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Technical Details</h4>
+                  <p class="card-description">
+                    Enter Details Below.
+                  </p>
+                   <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Product</span>
+                      </div>
+                      <select class="form-control" name="PRODUCTNAME">
+                          <option>Select Product</option>
+                          {% for x in pro %}
+                          <option>{{x.Pro_Model}}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Description</span>
+                      </div>
+                      <textarea style="height:150px;" class="form-control" placeholder="Description" name="DESCRIPTION"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Age range</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Age range" name="AGE">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Color</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Color" name="COLOR">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Material</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Material" name="MATERIAL">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Size</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Size" name="SIZE">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Features</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Features" name="FEATURES">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Style</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Style" name="STYLE">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Components</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Included Components" name="COMPONENTS">
+                    </div>
+                  </div>
+
+                    <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Item Weight</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Item Weight" name="WEIGHT">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Item Model No</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Item Model Number" name="MODELNUM">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Manufacture</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Manufacture" name="MANUFACTURE">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Origin</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Country of Origin" name="ORIGIN">
+                    </div>
+                  </div>
+
+
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">PRSIN</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Pedal Rushers Standard Identification Number" name="PRSIN">
+                    </div>
+                  </div>
+
+                  <button type="submit" class="bttn btn ">ADD</button>
+                </div>
+              </div>
+            </div>
+</form>
+
+<style>
+  .wid {
+  width:110px;
+  }
+
+  .bttn{
+  background-color:white;
+  color:rgb(13,110,253);
+  border:1px solid rgb(13,110,253);
+  }
+
+  .bttn:hover{
+  background-color:rgb(13,110,253);
+  color:white;
+
+  }
+</style>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+{% if messages %}
+  {% for i in messages %}
+    {% if i.tags == 'warning' %}
+      <script>
+        swal('{{i}}','','warning')
+      </script>
+    {% elif i.tags == 'error' %}
+      <script>
+        swal('{{i}}','','error')
+      </script>
+    {% elif i.tags == 'info' %}
+      <script>
+        swal('{{i}}','','info')
+      </script>
+    {% else %}
+      <script>
+        swal('{{i}}','','success')
+      </script>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+</body>
+</html>
+{% endblock %}

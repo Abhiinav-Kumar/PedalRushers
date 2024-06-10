@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedal Rushers | View Technical Details</title>
+    {% extends 'Index.html' %}
+{% block content %}
+</head>
+<body>
+
+<div class="col-lg-18 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Product Technical Details Table</h4>
+                  <div class="table-responsive">
+                    <table style="overflow:scroll;" class="table table-hover">
+                      <thead>
+                        <tr>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>Id</th>
+                            <th>Product</th>
+                            <th style="min-width:700px;" >Description</th>
+                            <th>Age Range</th>
+                            <th>Color</th>
+                            <th>Material</th>
+                            <th>Size</th>
+                            <th>Features</th>
+                            <th>Style</th>
+                            <th>Components</th>
+                            <th>Item weight</th>
+                            <th>Item Model No:</th>
+                            <th>Manufacture</th>
+                            <th>Origin</th>
+                            <th>PRSID</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for x in data %}
+                      <tr>
+                          <td style="text-align:center;">
+                              <a href="{% url 'Technical_Edit_page' techid=x.id %}">
+                                  <i class="mdi mdi-tooltip-edit clr"></i>
+                              </a>
+                          </td>
+                          <td style="text-align:center;">
+                              <a href="{% url 'Delete_technical' tecid=x.id %}">
+                                  <i class="mdi mdi-delete-forever clr"></i>
+                              </a>
+                          </td>
+                          <td>{{x.id}}</td>
+                          <td>{{x.Tec_Product}}</td>
+                          <td >{{x.Tec_Description}}</td>
+                          <td>{{x.Tec_Age}}</td>
+                          <td>{{x.Tec_Color}}</td>
+                          <td>{{x.Tec_Material}}</td>
+                          <td>{{x.Tec_Size}}</td>
+                          <td>{{x.Tec_Features}}</td>
+                          <td>{{x.Tec_Style}}</td>
+                          <td>{{x.Tec_Components}}</td>
+                          <td>{{x.Tec_Weight}}</td>
+                          <td>{{x.Tec_ModelNo}}</td>
+                          <td>{{x.Tec_Manufacture}}</td>
+                          <td>{{x.Tec_Orgin}}</td>
+                          <td>{{x.Tec_Prsin}}</td>
+
+
+                      </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<style>
+
+    table,td,tr,th{
+    border:1px solid rgba(222, 221, 221, 0.697);
+    }
+    .table td img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+    .clr{
+    color:rgb(112, 128, 144);
+    }
+    .clr:hover{
+    color:rgb(79,92,240);
+    }
+</style>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+{% if messages %}
+  {% for i in messages %}
+    {% if i.tags == 'warning' %}
+      <script>
+        swal('{{i}}','','warning')
+      </script>
+    {% elif i.tags == 'error' %}
+      <script>
+        swal('{{i}}','','error')
+      </script>
+    {% elif i.tags == 'info' %}
+      <script>
+        swal('{{i}}','','info')
+      </script>
+    {% else %}
+      <script>
+        swal('{{i}}','','success')
+      </script>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+</body>
+</html>
+{% endblock %}

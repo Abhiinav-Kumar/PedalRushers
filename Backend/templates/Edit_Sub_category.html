@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedal Rushers | Edit Sub Categories</title>
+  {% extends 'Index.html' %}
+{% block content %}
+</head>
+<body>
+
+<form method="post" action="{% url 'Upadte_Sub_category' subid=data.id %}" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Edit Sub Categories</h4>
+                  <p class="card-description">
+                    Enter Details Below.
+                  </p>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Category</span>
+                      </div>
+                      <select class="form-control" name="CATEGORY">
+                          <option>{{data.Sub_Category}}</option>
+                          {% for x in cat %}
+                          <option>{{x.Category_PD}}</option>
+                          {% endfor %}
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Sub Category</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Sub Category" name="SUB" value="{{data.Sub_Models}}" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Description</span>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Small Description" name="DESCRIPTION" value="{{data.Sub_Description_PD}}" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">Uploaded image</span>
+                      </div>
+                      <img src="{{data.Sub_Image_PD.url}}" width="85px" height="80px" style="margin-left:20px; border-radius:5px;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-primary text-white wid">New image</span>
+                      </div>
+                      <input type="file" class="form-control" name="SUBIMAGE">
+                    </div>
+                  </div>
+                  <button type="submit" class="bttn btn ">Update</button>
+                </div>
+              </div>
+            </div>
+</form>
+
+<style>
+  .wid {
+  width:120px;
+  }
+
+  .bttn{
+  background-color:white;
+  color:rgb(13,110,253);
+  border:1px solid rgb(13,110,253);
+  }
+
+  .bttn:hover{
+  background-color:rgb(13,110,253);
+  color:white;
+
+  }
+</style>
+</body>
+</html>
+{% endblock %}
