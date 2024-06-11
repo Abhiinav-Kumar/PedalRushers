@@ -2,10 +2,10 @@ from django.shortcuts import render,redirect
 from Backend.models import PedalRushersDB,PR_Product_DB,PR_Sub_category_DB,PR_Technical_DB
 from WebApp.models import UserDB,CartDB,UserBillingDB
 from django.contrib import messages
+import razorpay
 
 # from WebApp.models import ContactDb,UserDB
 
-from django.db.models import Q
 
 # Create your views here.
 def Home_page(req):
@@ -183,5 +183,13 @@ def Save_Billing(req):
 
 
 def Payment_page(req):
-    return render(req,"Payment.html")      
+    customer = UserBillingDB.objects.order_by('-id').first()
+    pay = customer.Totalprice
+    amount = int(pay*100)
+    pay_str = str(amount)
+    if req.method=="POST":
+        order_currecy='INR'
+        client = razorpay.Client(auth=('rzp_test_3lMy3dVuXe8hqk','fXEFJv7RHxqbXGaIF2Xij3B5'))
+        payment = client.order.create({'amount':amount,'currency':order_currecy,'payment_capture':'1'})
+    return render(req,"Payment.html",{'customer':customer,'pay_str':pay_str})
     
