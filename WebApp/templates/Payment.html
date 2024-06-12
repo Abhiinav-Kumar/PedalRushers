@@ -64,11 +64,8 @@
     <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span
-                        class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                        class="icon-bar"></span><span class="icon-bar"></span></button>
                 <a class="navbar-brand" href="{% url 'Home' %}">Pedal Rushers</a>
-            </div>
+          </div>
         </div>
     </nav>
 
@@ -80,7 +77,7 @@
                 <div class="caption-content">
                     <div class="font-alt mb-30 titan-title-size-1">Payment Window</div>
                     <div class="font-alt mb-40 titan-title-size-2">Hi <span
-                            class="font-alt mb-45 titan-title-size-2 hover_cc">{{customer.Username}},</span> Almost
+                            class="font-alt mb-45 titan-title-size-2 hover_cc ">{{customer.Username}}</span>, Almost
                         there! Just a quick step to secure your purchase.
                     </div>
                     <input type="hidden" name="">
@@ -91,15 +88,14 @@
     </form>
 
     <style>
-
         body {
-       height: 100%;
-           }
+            height: 100%;
+         }
 
        .hover_cc{
-       color:black;
-       font-weight:800px;
-       font-size:26px;
+            color:black;
+            font-size:26px;
+            position:relative;
        }
 
        .hover_cc:hover{
@@ -145,5 +141,6 @@ JavaScripts
 <script src="{% static 'webstyle/assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
 <script src="{% static 'webstyle/assets/js/plugins.js' %}"></script>
 <script src="{% static 'webstyle/assets/js/main.js' %}"></script>
+
 </body>
 </html>

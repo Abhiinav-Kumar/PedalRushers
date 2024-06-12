@@ -116,7 +116,6 @@
                   <div class="shop-item-image" style="height:350px;"><img src="{{ p.Pro_Img.url }}" height="300px" alt="Please wait Image is loading"/>
                     <div class="shop-item-detail"><a href="{% url 'Single_Product_Page' pro_id=p.id productname=p.Pro_Model %}" class="btn btn-round btn-b"><span class="icon-telescope"> Details</span></a></div>
                   </div>
-
                     <h4 class="shop-item-title font-alt"><a href="#">{{p.Pro_Type}}</a></h4>
                     <h4 class="shop-item-title font-alt"><a href="#">{{p.Pro_Model}}</a></h4>₹ {{p.Pro_Price}}
                 </div>
@@ -124,11 +123,6 @@
               {% endfor %}
             </div>
 
-            <div class="row">
-<!--              <div class="col-sm-12">-->
-<!--                <div class="pagination font-alt"><a href="#"><i class="fa fa-angle-left"></i></a><a class="active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#"><i class="fa fa-angle-right"></i></a></div>-->
-<!--              </div>-->
-            </div>
           </div>
         </section>
 

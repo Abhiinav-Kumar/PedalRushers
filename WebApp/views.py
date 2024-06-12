@@ -121,7 +121,7 @@ def Cart_page(req):
             total =sub_total+shipping_charge
         return render(req,"Cart.html",{'cat':cat,'data':data,'sub_total':sub_total,'total':total,'shipping_charge':shipping_charge})
     except KeyError:
-        messages.error(req,"Please Login into your Account")
+        messages.warning(req,"Please log in to your account to access this feature")
         return redirect(Home_page)
 
 def Save_Cart(req):
