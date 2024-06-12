@@ -73,6 +73,7 @@ def Save_User(request):
 
         obj = UserDB(Username=USER,Email=EMAIL,Password=PASS)
         obj.save()
+        messages.success(request,"Account Created")
         return redirect(User_login_page)
 
 def User_login(request):
