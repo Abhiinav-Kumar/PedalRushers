@@ -80,17 +80,18 @@ def User_login(request):
         un = request.POST.get('username')
         pwd = request.POST.get('pass')
 
-        if UserDB.objects.filter(Username=un,Password=pwd).exists():
-            request.session['Username']=un
-            request.session['Password']=pwd
-            messages.success(request, "Welcome")
-            return redirect(Home_page)
+        if UserDB.objects.filter(Username=un).exists():
+            if UserDB.objects.filter(Password=pwd).exists():
+                request.session['Username']=un
+                request.session['Password']=pwd
+                messages.success(request, "Welcome")
+                return redirect(Home_page)
+            else:
+                messages.error(request,"Inavlid Password")
+                return redirect(User_login_page)
         else:
-            messages.error(request,"Inavlid Password")
+            messages.error(request, "User Not Found")
             return redirect(User_login_page)
-    else:
-        messages.error(request, "User Not Found")
-        return redirect(User_login_page)
 
 def user_logout(request):
 
