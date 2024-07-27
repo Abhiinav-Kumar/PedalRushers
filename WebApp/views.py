@@ -12,7 +12,7 @@ import razorpay
 def Home_page(req):
     cat = PedalRushersDB.objects.all()
     last_five_products = PR_Product_DB.objects.filter(Q(Pro_Type="Gravel Bike")| Q(Pro_Type="Mountain Bike")| Q(Pro_Type="Electric Mountain bikes")).order_by('-id')[:4]
-    print("Five products :",last_five_products)
+    # print("Five products :",last_five_products)
     return render(req,"Home.html",{'cat':cat,'last_five_products':last_five_products})
 
 def Product_page(req):
