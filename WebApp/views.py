@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from Backend.models import PedalRushersDB,PR_Product_DB,PR_Sub_category_DB,PR_Technical_DB
 from WebApp.models import UserDB,CartDB,UserBillingDB
 from django.contrib import messages
+from django.db.models import Q
 import razorpay
 
 # from WebApp.models import ContactDb,UserDB
@@ -10,7 +11,9 @@ import razorpay
 # Create your views here.
 def Home_page(req):
     cat = PedalRushersDB.objects.all()
-    return render(req,"Home.html",{'cat':cat})
+    last_five_products = PR_Product_DB.objects.filter(Q(Pro_Type="Gravel Bike")| Q(Pro_Type="Mountain Bike")| Q(Pro_Type="Electric Mountain bikes")).order_by('-id')[:4]
+    print("Five products :",last_five_products)
+    return render(req,"Home.html",{'cat':cat,'last_five_products':last_five_products})
 
 def Product_page(req):
     pro = PR_Product_DB.objects.all()
