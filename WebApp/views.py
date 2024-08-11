@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from Backend.models import PedalRushersDB,PR_Product_DB,PR_Sub_category_DB,PR_Technical_DB
-from WebApp.models import UserDB,CartDB,UserBillingDB
+from WebApp.models import UserDB,CartDB,UserBillingDB,ContactDb
 from django.contrib import messages
 from django.db.models import Q
 import razorpay
